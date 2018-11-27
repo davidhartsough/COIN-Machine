@@ -1,8 +1,11 @@
+import iconNames from './icon-names';
+
+const getRandomItemFromArray = array => array[Math.floor(Math.random() * array.length)];
+
 export default () => {
-  // TODO: get random icon from url
-  const newCursor = "url('https://img.icons8.com/color/32/000000/rick-sanchez.png'), grab";
-  document.body.style.cursor = newCursor;
-  const everything = document.querySelectorAll('body *');
+  const randomCursor = getRandomItemFromArray(iconNames);
+  const newCursor = `url('https://png.icons8.com/color/${randomCursor}'), url('https://png.icons8.com/${randomCursor}'), grab`;
+  const everything = document.querySelectorAll('*');
   everything.forEach(element => {
     element.style.cursor = newCursor;
   });

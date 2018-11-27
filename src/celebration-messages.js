@@ -21,5 +21,4 @@ export default [
   'Check out that',
   'Everybody say:',
   "I'd holla at that",
-  'Holla',
 ];

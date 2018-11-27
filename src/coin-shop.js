@@ -1,7 +1,15 @@
 import shopItems from './shop-items';
+import playSound from './play-sound';
 
-const closeCoinShop = () => {
-  document.getElementById('coin-shop').className = 'hide';
+const containsCoinShopDialog = elem => {
+  const elemId = elem.id || '';
+  return elemId === 'coin-shop-dialog';
+};
+
+const closeCoinShop = event => {
+  if (event === 'skip' || !event.path.some(containsCoinShopDialog)) {
+    document.getElementById('coin-shop').className = 'hide';
+  }
 };
 
 const subtractCoins = cost => {
@@ -12,9 +20,12 @@ const subtractCoins = cost => {
 const buy = item => {
   const { cost, activate } = item;
   if (Number(sessionStorage.coinCount) >= cost) {
+    closeCoinShop('skip');
     subtractCoins(cost);
-    closeCoinShop();
+    playSound('buy');
     activate();
+  } else {
+    alert("WOMP. You don't have enough coins for that yet!");
   }
 };
 
@@ -25,7 +36,7 @@ const createCoinShop = () => {
       <div class="shop-option" id="${option.id}">
         <div class="shop-option-title">${option.name}</div>
         <div class="shop-option-cost">
-          <img class="shop-option-coin" src="https://vectr.com/davidhartsough/h51SQUS9f.svg" alt="coin"/>
+          <img class="shop-option-coin dont-swap-me" src="https://vectr.com/davidhartsough/h51SQUS9f.svg" alt="coin"/>
           ${option.cost}
         </div>
       </div>

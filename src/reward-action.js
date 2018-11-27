@@ -1,4 +1,5 @@
 import celebrationMessages from './celebration-messages';
+import playSound from './play-sound';
 
 let coinCelebrationTimeout;
 let celebrationTimeout;
@@ -25,8 +26,7 @@ const getRandomItemFromArray = array => array[Math.floor(Math.random() * array.l
 const getRandomCelebrationMessage = () => getRandomItemFromArray(celebrationMessages);
 
 const celebrate = message => {
-  // TODO: add sound effects
-  // TODO: add arrows
+  playSound('coin');
   const celebration = document.getElementById('celebration');
   celebration.innerText = message;
   celebration.className = 'show';
@@ -51,7 +51,7 @@ const celebrate = message => {
   clearTimeout(celebrationTimeout);
   celebrationTimeout = setTimeout(() => {
     celebration.className = 'hide';
-  }, 1600);
+  }, 1700);
 };
 
 export default eventName => {

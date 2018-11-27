@@ -1,7 +1,17 @@
+import initializeCoinMachine from './the-machine';
+import initializeCoinShop from './coin-shop';
+import initializeCelebration from './celebration';
+import playSound from './play-sound';
+
+const rebuild = () => {
+  initializeCoinMachine();
+  initializeCoinShop();
+  initializeCelebration();
+};
+
 export default () => {
-  console.log('BOOM!');
-  /*
   if (document.body.id !== 'nuked') {
+    playSound('explosion');
     const allTheText = document.body.innerText;
     document.head.innerHTML = `
       <meta charset="UTF-8">
@@ -12,7 +22,6 @@ export default () => {
     document.body.id = 'nuked';
     document.body.innerHTML = '<p id="all-the-text"></p>';
     document.getElementById('all-the-text').innerText = allTheText;
-    // createTheMachine();
+    rebuild();
   }
-  */
 };
