@@ -3,7 +3,7 @@ import rewardAction from './reward-action';
 let scrollTimeout;
 
 const containsCoinPrefix = elem => {
-  const elemId = elem.id || '';
+  const elemId = elem.id ? String(elem.id) : 'z';
   return elemId.indexOf('coin-') !== -1;
 };
 
