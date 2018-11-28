@@ -135,14 +135,16 @@
   border: 2px solid #ccc;
   border-radius: 4px;
   padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .shop-option {
+  flex: 1 1 auto;
   padding: 8px;
   background-color: #eee;
   margin: 4px;
-  width: calc(50% - 8px);
   min-width: 150px;
-  float: left;
   border-radius: 4px;
   cursor: pointer;
 }

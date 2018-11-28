@@ -3,6 +3,7 @@
   "description": "Coin-Operated Inter-Net Machine",
   "version": "1.0",
   "manifest_version": 2,
+  "short_name": "COIN Machine",
   "permissions": ["activeTab"],
   "browser_action": {
     "default_icon": {
